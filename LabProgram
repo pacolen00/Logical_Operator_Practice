@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class LabProgram {
+	public static void main(String[] args) {
+		Scanner scnr = new Scanner(System.in);
+		int highwayNumber;
+		int primaryNumber;
+
+		highwayNumber = scnr.nextInt();
+		String ns = "north/south";
+		String ew = "east/west";
+
+		String p = "primary";
+		String a = "auxiliary";
+
+		String way = "";
+		String direction = "";
+
+		if (highwayNumber % 2 == 0) {
+			direction = ew;
+		} else {
+			direction = ns;
+		}
+
+		if (highwayNumber <= 999 && highwayNumber >= 100 && highwayNumber != 200) {
+			way = a;
+			int last = highwayNumber % 100;
+			System.out.printf("I-%d is %s, serving I-%d, going %s.\n", highwayNumber, way, last, direction);
+		} else if (highwayNumber > 0 && highwayNumber < 99) {
+			way = p;
+			System.out.printf("I-%d is %s, going %s.\n", highwayNumber, way, direction);
+		} else {
+			System.out.println(highwayNumber + " is not a valid interstate highway number.");
+		}
+
+	}
+}
